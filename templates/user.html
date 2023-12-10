@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Login page {% endblock %}
+
+{% block content %}
+
+<h2>Hello {{user}}</h2>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for m in messages %}
+            <p style = "color: red">{{m}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div style ="margin-left: 50px;">
+    <form action = "#" method = "post">
+        <label for ="">Email</label>
+        <input type = "email" name = 'email' placeholder = "Enter email..." value = "{{email if email}}"></input>
+        <button style = "background-color: green; color: white;" type = "submit">Submit</button>
+    </form>
+    <form action = "#" method = "post">
+        <label for ="">Delete user</label>
+        <input type = "name" name = 'name' placeholder = "Enter user..." value = "{{user if user}}"></input>
+        <button style = "background-color: red; color: white;" type = "submit">Delete</button>
+    </form> 
+</div>
+
+{% endblock %}
